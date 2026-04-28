@@ -1,0 +1,16 @@
+{% extends 'base.html' %}{% block content %}
+<h3 class="mt-3">Clients</h3>
+<form method="post" class="panel row g-2">
+  <div class="col-md-4"><input class="form-control" name="company_name" placeholder="Company name" required></div>
+  <div class="col-md-3"><input class="form-control" name="contact_name" placeholder="Contact"></div>
+  <div class="col-md-3"><input class="form-control" name="email" placeholder="Email"></div>
+  <div class="col-md-2"><input class="form-control" type="number" step="0.01" name="monthly_fee" placeholder="Monthly fee"></div>
+  <div class="col-md-2"><select class="form-select" name="status"><option>active</option><option>paused</option><option>cancelled</option><option>prospect</option></select></div>
+  <div class="col-md-3"><input class="form-control" name="service_plan" placeholder="Plan"></div>
+  <div class="col-md-3"><input class="form-control" name="whatsapp" placeholder="WhatsApp"></div>
+  <div class="col-md-4"><input class="form-control" name="website" placeholder="Website"></div>
+  <div class="col-md-12"><textarea class="form-control" name="notes" placeholder="Notes"></textarea></div>
+  <div class="col-12"><button class="btn btn-primary">Create client</button></div>
+</form>
+<div class="panel mt-3 table-responsive"><table class="table table-sm"><tr><th>Company</th><th>Status</th><th>Plan</th><th>Fee</th><th></th></tr>{% for c in clients %}<tr><td>{{ c.company_name }}</td><td>{{ c.status }}</td><td>{{ c.service_plan }}</td><td>{{ c.monthly_fee }}</td><td><form method="post" action="{{ url_for('delete_client', cid=c.id) }}"><button class="btn btn-sm btn-outline-danger">Delete</button></form></td></tr>{% endfor %}</table></div>
+{% endblock %}
