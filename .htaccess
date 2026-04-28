@@ -3,3 +3,8 @@ Options -Indexes
 <Files "config.php">
   Require all denied
 </Files>
+
+# Depois de instalar, descomente para bloquear instalador
+# <Files "install.php">
+#   Require all denied
+# </Files>
