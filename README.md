@@ -1,38 +1,34 @@
-# Pacaembu OS
+# Pacaembu OS (PHP)
 
-A full-stack Flask app for social media + web agency operations.
+Sistema completo em **PHP + PDO** para gestão de agência social media/web design.
 
-## Quick install (Hostinger/HostGator friendly)
+## Recursos principais
+- Autenticação: login, registro e logout.
+- Dashboard com visão de clientes, projetos, tarefas, atrasos e receita.
+- CRUD funcional para: clientes, projetos, tarefas, calendário editorial, website projects, métricas, finanças, arquivos, aprovações, relatórios, logs de IA.
+- Busca global.
+- Exportação de relatório em PDF.
+- Controle básico de papel (ex.: exclusão de cliente restrita a Admin).
+- Layout responsivo no estilo Windows 7/8.
 
-### Option A: Terminal/SSH installer
-```bash
-bash install.sh
-```
-Then run Flask and open `/install` in browser.
+## Instalação em Hostinger / HostGator (cPanel)
+1. Envie os arquivos para `public_html` (ou subpasta).
+2. Garanta PHP 8.1+ habilitado.
+3. Acesse `https://seu-dominio.com/install.php`.
+4. Escolha SQLite (rápido) ou MySQL.
+5. Informe credenciais de admin.
+6. Após concluir, entre em `index.php?page=login`.
 
-### Option B: cPanel Python App + Passenger
-1. Upload project files.
-2. Create Python app (3.10+), app root as this folder, startup file `passenger_wsgi.py`.
-3. Install dependencies: `pip install -r requirements.txt` in created virtualenv.
-4. Open your domain `/install` and complete one-time wizard:
-   - `SECRET_KEY`
-   - `DATABASE_URL` (SQLite or MySQL)
-   - admin account
-5. After installation, `instance/install.lock` is created and installer is disabled.
+## Banco de dados
+O instalador cria automaticamente todas as tabelas do arquivo `php_app/schema.sql`.
 
-## Database
-- Default: SQLite (`instance/pacaembu.db`)
-- For MySQL example:
-  `mysql+pymysql://user:password@localhost/database`
+## Estrutura
+- `index.php`: aplicação principal (roteamento e módulos).
+- `install.php`: instalador web.
+- `php_app/schema.sql`: schema completo.
+- `static/style.css`: tema e responsividade.
+- `uploads/`: arquivos enviados.
+- `storage/`: SQLite local (quando escolhido).
 
-## Local run
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python app.py
-```
-
-## Installer route
-- `/install` (one-time setup)
-- Creates admin user, database tables and optional demo seed.
+## Observação de segurança
+Após instalar, remova acesso público a `install.php` (ex.: bloqueio via `.htaccess`) para produção.
