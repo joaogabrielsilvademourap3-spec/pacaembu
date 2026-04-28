@@ -1,0 +1,21 @@
+:root{--navy:#0b1e3b;--blue:#1d5fa7;--cyan:#3eb7d4;--silver:#dfe8f2;--panel:rgba(255,255,255,.82)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#eff5fb,#d9e3f1);font-family:Segoe UI,Tahoma,sans-serif;color:#123}
+a{color:#0c4a8e;text-decoration:none}
+.app-shell{display:flex;min-height:100vh}
+.sidebar{width:235px;background:linear-gradient(180deg,#0e2b52,#123b6f);padding:16px;display:flex;flex-direction:column;gap:8px}
+.sidebar a,.sidebar h3{color:#f3f9ff}.sidebar a{padding:9px;border-radius:10px}.sidebar a:hover{background:rgba(255,255,255,.12)}
+.content-area{flex:1;padding:14px}
+.topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;background:var(--panel);border:1px solid #b4cde2;padding:10px;border-radius:12px;box-shadow:0 4px 12px rgba(11,30,59,.12)}
+.topbar form{display:flex;gap:8px}.topbar input,.topbar button{padding:9px;border-radius:8px;border:1px solid #b6cade}
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:12px}
+.tile{background:linear-gradient(135deg,#2f8bd0,#56bfd8);color:#fff;border-radius:12px;padding:14px;box-shadow:0 5px 12px rgba(18,44,87,.2)}
+.panel{background:var(--panel);border:1px solid #bfd2e4;border-radius:12px;padding:12px;box-shadow:0 4px 10px rgba(14,35,66,.08);margin:10px 0}
+.grid,.grid2{display:grid;gap:8px}.grid2{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+input,select,textarea,button{padding:10px;border:1px solid #b6cade;border-radius:8px}textarea{min-height:80px}
+button{background:#1d5fa7;color:#fff;cursor:pointer}button:hover{opacity:.95}
+.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:14px}td,th{border-bottom:1px solid #d5e0ed;padding:8px;text-align:left}
+.kanban{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}.task-chip{background:#eef5ff;padding:8px;border-left:4px solid #1d5fa7;border-radius:6px;margin-bottom:6px;cursor:grab}
+.alert{background:#e8f2ff;border:1px solid #bad0e8;border-radius:8px;padding:10px;margin:10px 0}
+.auth-body{display:grid;place-items:center;min-height:100vh}.auth-card{max-width:560px;width:95%;padding:20px;background:var(--panel);border:1px solid #b3c6d9;border-radius:14px}
+#contentCalendar{max-width:100%;overflow:hidden}
+@media (max-width:900px){.app-shell{display:block}.sidebar{width:100%;position:sticky;top:0;z-index:5}.content-area{padding:8px}.topbar{flex-direction:column;align-items:stretch}.topbar form{width:100%}}
