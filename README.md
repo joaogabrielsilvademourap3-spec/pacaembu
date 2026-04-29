@@ -2,36 +2,29 @@
 
 Offline-first CRM desktop application for web development and social media agencies.
 
-## Stack
-- C# / .NET Framework 4.8
-- Windows Forms (Windows 7/8 style compatible)
-- SQLite local database (auto-created in `%LOCALAPPDATA%/AgencyCRM`)
+## What is already functional
+- Local SQLite database creation on first startup.
+- Data persistence to `%LOCALAPPDATA%\AgencyCRM\agencycrm.db`.
+- Real CRUD screens (add/edit/delete/refresh/export CSV) for agency modules.
+- Dashboard KPI summary.
+- Global search across clients/leads/projects.
+- Reports tab (project status summary).
+- Settings with API key save, demo-data cleanup, and local DB backup.
+- AI Assistant tab with optional API call support.
 
-## Features
-- Dashboard KPIs
-- CRUD modules: Clients, Leads, Projects, Tasks, Calendar, Proposals, Contracts, Finance, Social posts, Website maintenance
-- Reports tab
-- Global Search tab
-- Settings tab with API key persistence
-- AI Assistant tab (OpenAI-compatible chat completions endpoint)
-- Demo data on first launch
+## Run the EXE (no Visual Studio required)
+1. Use a Windows machine with .NET Framework 4.8 installed.
+2. Open the `release` folder (or build output folder) and run `AgencyCRM.exe`.
+3. On first run, the app initializes the local database automatically.
 
-## Build
-1. Open `AgencyCRM.sln` in Visual Studio 2022/2019.
-2. Restore NuGet packages.
-3. Build Release.
-4. Run `AgencyCRM.exe`.
-
-## Portable release
-- Copy `AgencyCRM/bin/Release` folder to target machine with .NET Framework 4.8 runtime.
-
-## Installer
-- Recommended: Visual Studio Installer Project or Inno Setup pointing to Release output.
+## Build without Visual Studio UI
+Use a Developer Command Prompt on Windows:
+- `nuget restore AgencyCRM.sln`
+- `msbuild AgencyCRM.sln /p:Configuration=Release`
 
 ## Database schema
 - See `AgencyCRM/schema.sql`.
 
-## Backup/Restore
-- Database file path: `%LOCALAPPDATA%/AgencyCRM/agencycrm.db`.
-- Backup by copying file while app is closed.
-
+## Backup
+- In-app: `Settings -> Backup Database`
+- Manual: copy `%LOCALAPPDATA%\AgencyCRM\agencycrm.db` while the app is closed.
